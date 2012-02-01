@@ -28,17 +28,20 @@ jQuery(function($){
 	});
 	
 	$(document.documentElement).keyup(function (event) {
-		
+		//http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes for key code
 		// Letter m
 		if (event.keyCode == 77) {
 			$('#dialog').jqmShow();
 		} 
+		if (event.keyCode == 88) {
+			$('#dialog').jqmHide();
+		}
 	});
   //other functions here
 	// idle timer for video
 	var timeout = 5000;
-	var video_player = _V_("video_player");
-	var player_container = $("#demo_video");
+	var video_player = _V_("video-player");
+	var player_container = $("#demo-video");
 	
 	$(document).bind("idle.idleTimer", function(){
 			player_container.stop().animate({right: 10}, 
