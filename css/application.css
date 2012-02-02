@@ -75,7 +75,7 @@ ul#cat-list li.current-item img {
 				  box-shadow: 0 1px 3px rgba(82,168,236,.25);
 }
 
-#dialog h2 {
+#menu-popup h2 {
 	margin-top:20px;
 	width: 100%;
 	text-align:center;
@@ -93,6 +93,27 @@ ul#cat-list li.current-item img {
 	float: right;
 }
 #help-dialog-button img{
+	width: 60px;
+}
+
+#like-popup h2 {
+	margin-top:20px;
+	width: 100%;
+	text-align:center;
+}
+
+#exit-like-button {
+	margin-left:40px;
+}
+
+#exit-like-button img{
+	width: 60px;
+}
+#help-like-button {
+	margin-right: 40px;
+	float: right;
+}
+#help-like-button img{
 	width: 60px;
 }
 #page-title{display: none;position:fixed; z-index:3; left:10px; bottom:100px; padding:10px; background:url(../img/fs_img_g_bg.png); color:#FFF; font-family:'Josefin Sans Std Light', arial, serif; font-size:24px; text-transform:uppercase;}

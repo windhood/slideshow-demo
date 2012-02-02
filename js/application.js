@@ -31,14 +31,22 @@ jQuery(function($){
 		//http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes for key code
 		// Letter m
 		if (event.keyCode == 77) {
-			$('#dialog').jqmShow();
+			$('#menu-popup').jqmShow();
 		} 
+		// Letter L
+		if (event.keyCode == 76) {
+			$('#like-popup').jqmShow();
+		}
+		// Letter x
 		if (event.keyCode == 88) {
-			$('#dialog').jqmHide();
+			$('#menu-popup').jqmHide();
+			$('#like-popup').jqmHide();
 		}
 	});
   //other functions here
 	
-	$('#dialog').jqm();
+	$('#menu-popup').jqm().jqmAddTrigger($('#menu-button'));
+	
+	$('#like-popup').jqm().jqmAddTrigger($('#like-button'));
   //end
   });
