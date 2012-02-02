@@ -9,12 +9,11 @@
 		<link rel="stylesheet" href="supersized/supersized.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="supersized/theme/supersized.default.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="css/application.css" type="text/css" media="screen" />
+		<link href="http://vjs.zencdn.net/c/video-js.css" rel="stylesheet">
 	</head>
 
 <body>
-  
 	<div id="page-title">Kinect Demo</div>
-  
 	<div id="slidecaption2" class="img-title"></div>
   <a id="menu-button" href="#" class="jqModal">
     <img src="img/demo/icons_thumbs/iscreen_menu_icon.png" alt="menu">
@@ -63,7 +62,16 @@
 			
 		</div>
 	</div>
-	
+	<div id="demo-video">
+    <video id="video-player" class="video-js vjs-default-skin"  
+      width="320" height="132"  
+      poster="http://video-js.zencoder.com/oceans-clip.png"  
+      >  
+     <source src="video.mp4" type='video/mp4' />
+     <source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm' />
+     <source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' />
+    </video>
+  </div>
   
   <div class="jqmWindow" id="dialog">
     <h2>COLLECTIONS</h2>
@@ -99,6 +107,9 @@
 	<script type="text/javascript" src="js/jquery.jqmodal.js"></script>
 	<script type="text/javascript" src="supersized/supersized.3.2.6.js"></script>
 	<script type="text/javascript" src="supersized/theme/supersized.default.js"></script>
+	<script type="text/javascript" src="js/jquery.idle-timer.js"></script>
+	<script src="http://vjs.zencdn.net/c/video.js"></script>
+	<script type="text/javascript" src="js/bootstrap-modal.js"></script>
 	<script type="text/javascript" src="js/application.js"></script>
 	
 </body>

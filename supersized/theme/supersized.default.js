@@ -239,6 +239,8 @@
 				/* Set the caption */
 				
 				if ($(vars.slide_caption2).length){
+					(api.getField('title')) ? $(vars.slide_caption2).html(api.getField('title')) : $(vars.slide_caption2).html('');
+				  /*
 				  vars.slide_caption2_top = $(vars.slide_caption2).position().top;
 				  if (vars.slide_caption2_top < vars.min_slide_caption2_top) {
 						vars.slide_caption2_top = vars.min_slide_caption2_top;
@@ -254,6 +256,7 @@
 								
 							}});
 					}
+					*/
 			  }
 				
 		    // Update slide number

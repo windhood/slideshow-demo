@@ -4,8 +4,8 @@ jQuery(function($){
 		// Functionality
 		slide_interval      :   3000,		// Length between transitions
 		transition          :   3, 			// 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
-		transition_speed		:	  2000,		// Speed of transition
-		easing							:   "easeOutCirc",//Check  http://www.commadot.com/jquery/easing.php to see easing effect,http://matthewlein.com/ceaser/
+		transition_speed		:	  800,		// Speed of transition
+		easing							:   "easeOutExpo",//Check  http://www.commadot.com/jquery/easing.php to see easing effect,http://matthewlein.com/ceaser/
 		pause_hover         :   1,
 		image_protect       :   0,	
 		keyboard_nav				:   1, 
@@ -26,7 +26,7 @@ jQuery(function($){
 									]
 
 	});
-	
+	//keyboard mapping
 	$(document.documentElement).keyup(function (event) {
 		//http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes for key code
 		// Letter m
@@ -37,7 +37,6 @@ jQuery(function($){
 			$('#dialog').jqmHide();
 		}
 	});
-  //other functions here
 	
 	$('#dialog').jqm();
   //end

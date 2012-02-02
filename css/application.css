@@ -95,8 +95,8 @@ ul#cat-list li.current-item img {
 #help-dialog-button img{
 	width: 60px;
 }
-#page-title{position:fixed; z-index:3; left:10px; bottom:100px; padding:10px; background:url(../img/fs_img_g_bg.png); color:#FFF; font-family:'Josefin Sans Std Light', arial, serif; font-size:24px; text-transform:uppercase;}
-.img-title{position:fixed; z-index:3; left:60px; top:120px; padding:10px; background:url(../img/fs_img_g_bg.png); color:#FFF; font-family:'Josefin Sans Std Light', arial, serif; font-size:16px; text-transform:uppercase;}
+#page-title{display: none;position:fixed; z-index:3; left:10px; bottom:100px; padding:10px; background:url(../img/fs_img_g_bg.png); color:#FFF; font-family:'Josefin Sans Std Light', arial, serif; font-size:24px; text-transform:uppercase;}
+.img-title{position:fixed; z-index:3; left:60px; bottom:120px; padding:10px; background:url(../img/fs_img_g_bg.png); color:#FFF; font-family:'Josefin Sans Std Light', arial, serif; font-size:16px; text-transform:uppercase;}
 #demo-video {position:fixed;z-index:3;right:-400px;bottom:40px;padding:10px;background:url(../img/fs_img_g_bg.png); color:#FFF;}
 #like-button {position:fixed; z-index:3; right:20px; top:10px; padding:10px; }
 #like-button img {width: 80px;}
