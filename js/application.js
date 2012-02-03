@@ -45,19 +45,20 @@ jQuery(function($){
 	});
   //other functions here
 	var showPopup = function(h){ 
+		vars.stop_slideshow = true;
 		h.w.slideDown(2000);
-		if (!vars.is_paused) {
-			api.playToggle();
-		}
-		vars.stop_keyboard_nav = true;
+		//if (!vars.is_paused) {
+		//	api.playToggle();
+		//}
+		
 	}; 
 	var hidePopup = function(h) {
 		h.w.slideUp('slow');
 		h.o.remove();
-		if (vars.is_paused) {
-			api.playToggle();
-		}
-		vars.stop_keyboard_nav = false;
+		//if (vars.is_paused) {
+		//	api.playToggle();
+		//}
+		vars.stop_slideshow = false;
 	};
 	$('#menu-popup').jqm({
 		onShow: showPopup,

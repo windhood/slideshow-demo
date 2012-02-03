@@ -215,7 +215,7 @@
 				$(document.documentElement).keyup(function (event) {
 					// see here for a list of keycode http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
 					if(vars.in_animation) return false;		// Abort if currently animating
-					if(vars.stop_keyboard_nav) return false;
+					if(vars.stop_slideshow) return false;//add by wenhu
 					// Left Arrow or Down Arrow
 					if ((event.keyCode == 37) || (event.keyCode == 40)) {
 						clearInterval(vars.slideshow_interval);	// Stop slideshow, prevent buildup
@@ -458,7 +458,7 @@
         /* Next Slide
 		----------------------------*/
 		base.nextSlide = function(){
-			
+			if (vars.stop_slideshow) return false;//add by wenhu
 			if(vars.in_animation || !api.options.slideshow) return false;		// Abort if currently animating
 				else vars.in_animation = true;		// Otherwise set animation marker
 				
@@ -570,7 +570,7 @@
 		/* Previous Slide
 		----------------------------*/
 		base.prevSlide = function(){
-		
+			if (vars.stop_slideshow) return false;//add by wenhu
 			if(vars.in_animation || !api.options.slideshow) return false;		// Abort if currently animating
 				else vars.in_animation = true;		// Otherwise set animation marker
 			
@@ -647,7 +647,8 @@
 	    		    nextslide.animate({top : base.$el.height()}, 0 ).css('visibility','visible').animate({ top:0, avoidTransforms : false }, base.options.transition_speed, function(){ base.afterAnimation(); });
 	    		    break;
 	    		case 3: case 'slideRight':	// Slide Right (reverse)
-	    			nextslide.animate({left : -base.$el.width()}, 0 ).css('visibility','visible').animate({ left:0, avoidTransforms : false }, base.options.transition_speed, function(){ base.afterAnimation(); });
+	    			nextslide.animate({left : -base.$el.width()}, 0 ).css('visibility','visible').animate({ left:0, avoidTransforms : false }, base.options.transition_speed, base.options.easing, function(){ base.afterAnimation(); });
+						//nextslide.animate({left : -base.$el.width()}, 0 ).css('visibility','visible').animate({ left:0, avoidTransforms : false }, base.options.transition_speed, function(){ base.afterAnimation(); });
 	    			break;
 	    		case 4: case 'slideBottom': // Slide Bottom (reverse)
 	    			nextslide.animate({top : -base.$el.height()}, 0 ).css('visibility','visible').animate({ top:0, avoidTransforms : false }, base.options.transition_speed, function(){ base.afterAnimation(); });
@@ -704,6 +705,7 @@
     	/* Go to specific slide
 		----------------------------*/
     	base.goTo = function(targetSlide){
+			if (vars.stop_slideshow) return false;//add by wenhu
 			if (vars.in_animation || !api.options.slideshow) return false;		// Abort if currently animating
 			
 			var totalSlides = base.options.slides.length;
