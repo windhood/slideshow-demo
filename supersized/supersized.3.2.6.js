@@ -215,6 +215,7 @@
 				$(document.documentElement).keyup(function (event) {
 					// see here for a list of keycode http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes
 					if(vars.in_animation) return false;		// Abort if currently animating
+					if(vars.stop_keyboard_nav) return false;
 					// Left Arrow or Down Arrow
 					if ((event.keyCode == 37) || (event.keyCode == 40)) {
 						clearInterval(vars.slideshow_interval);	// Stop slideshow, prevent buildup

@@ -44,9 +44,29 @@ jQuery(function($){
 		}
 	});
   //other functions here
+	var showPopup = function(h){ 
+		h.w.slideDown(2000);
+		if (!vars.is_paused) {
+			api.playToggle();
+		}
+		vars.stop_keyboard_nav = true;
+	}; 
+	var hidePopup = function(h) {
+		h.w.slideUp('slow');
+		h.o.remove();
+		if (vars.is_paused) {
+			api.playToggle();
+		}
+		vars.stop_keyboard_nav = false;
+	};
+	$('#menu-popup').jqm({
+		onShow: showPopup,
+		onHide: hidePopup}
+		).jqmAddTrigger($('#menu-button'));
 	
-	$('#menu-popup').jqm().jqmAddTrigger($('#menu-button'));
-	
-	$('#like-popup').jqm().jqmAddTrigger($('#like-button'));
+	$('#like-popup').jqm({
+		onShow: showPopup,
+		onHide: hidePopup}
+	).jqmAddTrigger($('#like-button'));
   //end
   });
