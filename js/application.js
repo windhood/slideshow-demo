@@ -1,9 +1,41 @@
 jQuery(function($){
+	
+	var catSwitcher = {
+		categoryList : $('#cat-list li'),
+		categorySize : $('#cat-list li').length,
+	  currentCategoryIndex : 0,
+	  gotoCategory : function(catIndex) {
+			
+			this.categoryList.each(function(index) {
+				//$(this).addClass("test");
+			  //  alert(index + ': ' + $(this).text());
+				$(this).removeClass("current-item");
+				if (("cat-" + catIndex) == $(this).attr("id")) {
+					$(this).addClass("current-item");
+				}
+			});
+		},
+		nextCategory : function() {
+			this.currentCategoryIndex = this.currentCategoryIndex + 1;
+			if (this.currentCategoryIndex >= this.categorySize) {
+				this.currentCategoryIndex  = 0;
+			}
+			this.gotoCategory(this.currentCategoryIndex);
+		},
+		prevCategory : function() {
+			this.currentCategoryIndex = this.currentCategoryIndex - 1;
+			if (this.currentCategoryIndex < 0) {
+				this.currentCategoryIndex  = this.categorySize - 1;
+			}
+			this.gotoCategory(this.currentCategoryIndex);
+		}
+		
+	};
 	var app = {
 	    init : function( options ) { 
-				app.setupSlideShow();
-				app.setupKeyboardNavigation();
-	      app.setupPopups();
+				this.setupSlideShow();
+				this.setupKeyboardNavigation();
+	      this.setupPopups();
 	    },
 			setupSlideShow : function() {
 				$.supersized({
@@ -40,27 +72,31 @@ jQuery(function($){
 					// Letter m
 					if (event.keyCode == 77) {
 						$('#menu-popup').jqmShow();
-					} 
-					// Letter L
-					if (event.keyCode == 76) {
+					} else if (event.keyCode == 76) {
+						// Letter l
 						$('#like-popup').jqmShow();
-					}
-					// Letter x
-					if (event.keyCode == 88) {
+					} else if (event.keyCode == 88) {
+						// Letter x
 						$('#menu-popup').jqmHide();
 						$('#like-popup').jqmHide();
+					} else if (event.keyCode == 37) {
+						// left arrow
+						catSwitcher.prevCategory();
+					} else if (event.keyCode == 39) {
+						// right arrow
+						catSwitcher.nextCategory();
 					}
 				});
 			},
 			setupPopups : function() {
 				$('#menu-popup').jqm({
-					onShow: app.onPopupShow,
-					onHide: app.onPopupHide}
+					onShow: this.onPopupShow,
+					onHide: this.onPopupHide}
 					).jqmAddTrigger($('#menu-button'));
 
 				$('#like-popup').jqm({
-					onShow: app.onPopupShow,
-					onHide: app.onPopupHide}
+					onShow: this.onPopupShow,
+					onHide: this.onPopupHide}
 				).jqmAddTrigger($('#like-button'));
 			},
 			onPopupShow : function(h){ 
@@ -79,7 +115,6 @@ jQuery(function($){
 				//}
 				vars.stop_slideshow = false;
 			}
-	    
 	  };
 	app.init();
   //end
