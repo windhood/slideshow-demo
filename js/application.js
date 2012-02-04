@@ -71,10 +71,14 @@ jQuery(function($){
 					//http://www.cambiaresearch.com/articles/15/javascript-char-codes-key-codes for key code
 					// Letter m
 					if (event.keyCode == 77) {
-						$('#menu-popup').jqmShow();
+						if (!vars.stop_slideshow) {
+							$('#menu-popup').jqmShow();
+						}
 					} else if (event.keyCode == 76) {
 						// Letter l
-						$('#like-popup').jqmShow();
+						if (!vars.stop_slideshow) {
+							$('#like-popup').jqmShow();
+						}
 					} else if (event.keyCode == 88) {
 						// Letter x
 						$('#menu-popup').jqmHide();
