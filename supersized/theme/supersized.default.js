@@ -57,7 +57,6 @@
 				$(vars.slide_total).html(api.options.slides.length);
 			}
 			
-			
 			/* Thumbnail Tray Navigation
 			----------------------------*/	
 			if (api.options.thumb_links){
@@ -195,7 +194,7 @@
 	 	
 	 	
 		_keyup : function(event) {
-			if (event.keyCode == 13) {
+			if (event.keyCode == 13 && !vars.stop_slideshow) {
 				$(vars.tray_button).click();
 			}
 		},
@@ -239,8 +238,11 @@
 				/* Set the caption */
 				
 				if ($(vars.slide_caption2).length){
-					(api.getField('title')) ? $(vars.slide_caption2).html(api.getField('title')) : $(vars.slide_caption2).html('');
-				  /*
+					api.getField('title') ? $(vars.slide_caption2).html(api.getField('title')) : $(vars.slide_caption2).html('');
+					$(vars.slide_caption2).animate({opacity : 0},0).css('visibility','visible').
+						animate({opacity : 1, avoidTransforms : false}, 600);
+					
+					/*
 				  vars.slide_caption2_top = $(vars.slide_caption2).position().top;
 				  if (vars.slide_caption2_top < vars.min_slide_caption2_top) {
 						vars.slide_caption2_top = vars.min_slide_caption2_top;

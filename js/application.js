@@ -28,6 +28,13 @@ jQuery(function($){
 				this.currentCategoryIndex  = this.categorySize - 1;
 			}
 			this.gotoCategory(this.currentCategoryIndex);
+		},
+		selectCategory : function() {
+			//$("#cat-" + this.currentCategoryIndex + " a").click();
+			//var link = $('#cat-1 a');
+			//link.click();
+			//$("li.current-item").find('a').click();
+			window.location = $("#cat-" + this.currentCategoryIndex + " a").attr('href');
 		}
 		
 	};
@@ -50,19 +57,7 @@ jQuery(function($){
 					keyboard_nav				:   1, 
 					// Components							
 					slide_links				  :	  false,	// Individual links for each slide (Options: false, 'num', 'name', 'blank')
-					slides 					    :  	[			// Slideshow Images
-														{image : 'img/demo/woman/zara_aug_01.jpeg', title : 'Zara aug 01', thumb : 'img/demo/woman/zara_aug_01_small.jpeg'},
-			                      {image : 'img/demo/woman/zara_aug_02.jpeg', title : 'Zara aug 02', thumb : 'img/demo/woman/zara_aug_02_small.jpeg'},  
-			                      {image : 'img/demo/woman/zara_aug_03.jpeg', title : 'Zara aug 03', thumb : 'img/demo/woman/zara_aug_03_small.jpeg'},
-			                      {image : 'img/demo/woman/zara_aug_04.jpeg', title : 'Zara aug 04', thumb : 'img/demo/woman/zara_aug_04_small.jpeg'},
-			                      {image : 'img/demo/woman/zara_aug_05.jpeg', title : 'Zara aug 05', thumb : 'img/demo/woman/zara_aug_05_small.jpeg'},
-			                      {image : 'img/demo/woman/zara_aug_06.jpeg', title : 'Zara aug 06', thumb : 'img/demo/woman/zara_aug_06_small.jpeg'},
-			                      {image : 'img/demo/woman/zara_aug_07.jpeg', title : 'Zara aug 07', thumb : 'img/demo/woman/zara_aug_07_small.jpeg'},
-			                      {image : 'img/demo/woman/zara_aug_08.jpeg', title : 'Zara aug 08', thumb : 'img/demo/woman/zara_aug_08_small.jpeg'},
-			                      {image : 'img/demo/woman/zara_aug_09.jpeg', title : 'Zara aug 09', thumb : 'img/demo/woman/zara_aug_09_small.jpeg'},
-			                      {image : 'img/demo/woman/zara_aug_10.jpeg', title : 'Zara aug 10', thumb : 'img/demo/woman/zara_aug_10_small.jpeg'},
-			                      {image : 'img/demo/woman/zara_aug_11.jpeg', title : 'Zara aug 11', thumb : 'img/demo/woman/zara_aug_11_small.jpeg'}
-												]
+					slides 					    :  	images
 
 				});
 			},
@@ -85,10 +80,18 @@ jQuery(function($){
 						$('#like-popup').jqmHide();
 					} else if (event.keyCode == 37) {
 						// left arrow
-						catSwitcher.prevCategory();
+						if (vars.stop_slideshow) {
+							catSwitcher.prevCategory();
+						}
 					} else if (event.keyCode == 39) {
 						// right arrow
-						catSwitcher.nextCategory();
+						if (vars.stop_slideshow) {
+							catSwitcher.nextCategory();
+						}
+					} else if (event.keyCode == 13) {
+						if (vars.stop_slideshow) {
+							catSwitcher.selectCategory();
+						}
 					}
 				});
 			},
