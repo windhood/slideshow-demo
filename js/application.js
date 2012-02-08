@@ -73,6 +73,10 @@ jQuery(function($){
 						// Letter l
 						if (!vars.stop_slideshow) {
 							$('#like-popup').jqmShow();
+						} else {
+							if (vars.stop_slideshow) {
+								catSwitcher.selectCategory();
+							}
 						}
 					} else if (event.keyCode == 88) {
 						// Letter x
@@ -88,11 +92,11 @@ jQuery(function($){
 						if (vars.stop_slideshow) {
 							catSwitcher.nextCategory();
 						}
-					} else if (event.keyCode == 13) {
-						if (vars.stop_slideshow) {
-							catSwitcher.selectCategory();
-						}
-					}
+					} //else if (event.keyCode == 13) {
+						//if (vars.stop_slideshow) {
+						//	catSwitcher.selectCategory();
+						//}
+					//}
 				});
 			},
 			setupPopups : function() {
