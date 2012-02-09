@@ -109,22 +109,33 @@ jQuery(function($){
 					onShow: this.onPopupShow,
 					onHide: this.onPopupHide}
 				).jqmAddTrigger($('#like-button'));
+				//$('#menu-popup').data('originTop', $('#menu-popup').position().top);
+				//$('#like-popup').data('originTop', $('#like-popup').position().top);
 			},
 			onPopupShow : function(h){ 
 				vars.stop_slideshow = true;
-				h.w.slideDown(2000);
+				//alert(h.w.data('originTop'));
+				var pop_top = ($(window).height() - h.w.height())/2;
+				if (pop_top < 5) pop_top = 5;
+				h.w.animate({top : -h.w.height()}, 0 ).show().animate(
+					{ top:pop_top, avoidTransforms : false }, {duration:2000, easing:'easeOutCirc', queue:false});
+				//h.w.slideDown(2000); -h.w.data('originTop')
 				//if (!vars.is_paused) {
 				//	api.playToggle();
 				//}
 
 			},
 			onPopupHide : function(h) {
-				h.w.slideUp('slow');
+				h.w.animate({top : -h.w.height()}, {duration:2000, easing:'easeOutCirc', queue:false,complete : function() {
+					h.w.hide();
+					vars.stop_slideshow = false;
+				}
+				});
 				h.o.remove();
 				//if (vars.is_paused) {
 				//	api.playToggle();
 				//}
-				vars.stop_slideshow = false;
+				
 			}
 	  };
 	app.init();
